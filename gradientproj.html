@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT-GRADIENT</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            margin-top: 15rem;
+            display: flex;
+            justify-content: center;  
+            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #30bf72, #a8eb12);
+            
+        }
+
+        .btn1, .btn2{
+            border-radius: 50%;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <button id="btn1">#051937</button>
+            <button id="btn2">#008793</button>
+        <br>
+        </div>
+        <h3>Copy your code here!</h3>
+        <div class="copyCode">
+            background-image: linear-gradient( to right, rgb(92, 145, 34), rgb(152, 63, 198));
+        </div>
+    </section>
+
+    <script>
+       
+       
+        const hexValues = () =>{
+            let myhexaValues = "0123456789abcdef";
+            let colors = '#';
+            for (let i=0; i<6; i++){
+            colors = colors + myhexaValues[Math.round(Math.random() *16)];
+        }
+        // console.log(colors); 
+         return colors;
+    };
+
+    const handleButton1 = () => {
+        rgb1 = hexValues();
+        console.log(rgb1);
+        document.body.style.backgroundImage = `linear-gradient(to right top, ${rgb1}, ${rgb2})`;
+        button1.innerHTML = rgb1;
+        copyDiv.innerHTML = `background-image: linear-gradient( to right, ${rgb1}, ${rgb2} )`;
+
+    };
+
+    const handleButton2 = () => {
+        rgb2 = hexValues();                       //yaha let krne pe rgb1 access nhi ho rha tha isliye kahi pe bhi rgb1 ya rgb2 ki value asign nhi ki h jisse wo random hi rhe hmesha.
+        console.log(rgb2);
+        document.body.style.backgroundImage = `linear-gradient(to right top, ${rgb1}, ${rgb2})`;
+        button2.innerHTML = rgb2;
+        copyDiv.innerHTML = `background-image: linear-gradient( to right, ${rgb1}, ${rgb2})`
+
+    };
+    
+        rgb1 = "rgb(92, 145, 34)";
+        rgb2 = "rgb(152, 63, 198)";
+        let button1 = document.getElementById("btn1");
+        let button2 = document.getElementById("btn2");                 //getElementById id ke liye krte h
+        let copyDiv = document.querySelector(".copyCode");            //querySelector class ke liye krte h
+        button1.addEventListener("click", handleButton1);
+        button2.addEventListener("click", handleButton2);
+
+        copyDiv.addEventListener("click", () => {
+        navigator.clipboard.writeText(copyDiv.innerText);
+        alert("Copied Text: " + copyDiv.innerText);
+    })
+    
+    </script>
+</body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT-GRADIENT</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            margin-top: 15rem;
+            display: flex;
+            justify-content: center;  
+            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #30bf72, #a8eb12);
+        }
+
+        .btn1, .btn2 {
+            border-radius: 50%;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+        
+        .copyCode {
+            margin-top: 20px;
+            cursor: pointer;
+            background: #cdb8b8;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>
+            <button id="btn1">#051937</button>
+            <button id="btn2">#008793</button>
+        <br>
+        </div>
+        <h3>Click to copy your CSS background code:</h3>
+        <div class="copyCode">
+            background-image: linear-gradient(to right, rgb(92, 145, 34), rgb(152, 63, 198));
+        </div>
+    </section>
+
+    <script>
+        const hexValues = () => {
+            const myhexaValues = "0123456789abcdef";
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += myhexaValues[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        const handleButton1 = () => {
+            rgb1 = hexValues();
+            console.log(rgb1);
+            document.body.style.backgroundImage = `linear-gradient(to right top, ${rgb1}, ${rgb2})`;
+            button1.innerHTML = rgb1;
+            copyDiv.innerHTML = `background-image: linear-gradient( to right, ${rgb1}, ${rgb2} )`;
+        };
+
+        const handleButton2 = () => {
+            rgb2 = hexValues();
+            console.log(rgb2);
+            document.body.style.backgroundImage = `linear-gradient(to right top, ${rgb1}, ${rgb2})`;
+            button2.innerHTML = rgb2;
+            copyDiv.innerHTML = `background-image: linear-gradient( to right, ${rgb1}, ${rgb2})`;
+        };
+    
+        let rgb1 = "#051937";  // Default color for button 1
+        let rgb2 = "#008793";  // Default color for button 2
+        let button1 = document.getElementById("btn1");
+        let button2 = document.getElementById("btn2");
+        let copyDiv = document.querySelector(".copyCode");
+
+        // Add event listeners to buttons for gradient generation
+        button1.addEventListener("click", handleButton1);
+        button2.addEventListener("click", handleButton2);
+
+        // Function to copy CSS code to clipboard
+        copyDiv.addEventListener("click", () => {
+            navigator.clipboard.writeText(copyDiv.innerText);
+            alert("Copied Text: " + copyDiv.innerText);
+        });
+    </script>
+</body>
+</html> -->
